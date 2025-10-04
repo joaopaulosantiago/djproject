@@ -12,7 +12,7 @@ services:
     volumes:
       - static_volume:/code/staticfiles
     expose:
-      - 8005
+      - 8000
     environment:
       DEBUG: "False"
       SECRET_KEY: ${SECRET_KEY}
