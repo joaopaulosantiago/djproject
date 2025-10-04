@@ -13,13 +13,7 @@ RUN mkdir -p /code
 
 WORKDIR /code
 
-# If you want to use poetry
-RUN pip install poetry
-COPY pyproject.toml poetry.lock /code/
-RUN poetry config virtualenvs.create false
-RUN poetry install --only main --no-root --no-interaction
-
-# If you want to use pip
+# Install Python dependencies
 COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 
