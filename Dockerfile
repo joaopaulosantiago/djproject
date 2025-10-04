@@ -19,6 +19,9 @@ RUN pip install -r requirements.txt
 
 COPY . /code
 
+# Convert line endings and set permissions for entrypoint.sh
+RUN sed -i 's/\r$//' /code/entrypoint.sh && chmod +x /code/entrypoint.sh
+
 RUN python manage.py collectstatic --noinput
 
-RUN chmod +x /code/entrypoint.sh
+CMD ["/code/entrypoint.sh"]
